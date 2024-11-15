@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Odin Project: Rock, Paper, Scissors</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./style.css">
+        <script src="./script.js"></script>
+    </head>
+    <body>
+        <div id="root">
+            <div class="game-card">
+                <div class="select">
+                    <select id="choice" onchange="getHumanChoice(this)">
+                        <option value="">Please, make your selection...</option>
+                        <option value="rock">Rock</option>
+                        <option value="paper">Paper</option>
+                        <option value="scissors">Scissors</option>
+                    </select>
+                </div>
+                <div id="info-bar"></div>
+                <div id="results">
+                    <div class="score">
+                        <div id="user-score">0</div>
+                        :
+                        <div id="cpu-score">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

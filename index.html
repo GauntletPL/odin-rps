@@ -10,7 +10,7 @@
         <div id="root">
             <div class="game-card">
                 <div class="select">
-                    <select id="choice" onchange="getHumanChoice(this)">
+                    <select id="choice">
                         <option value="">Please, make your selection...</option>
                         <option value="rock">Rock</option>
                         <option value="paper">Paper</option>
@@ -27,5 +27,9 @@
                 </div>
             </div>
         </div>
+        <script>
+            const rpsSelect = document.querySelector('#choice');
+            rpsSelect.addEventListener('change', handleRpsSelectChange);
+        </script>
     </body>
 </html>

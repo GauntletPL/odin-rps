@@ -11,8 +11,8 @@ function getComputerChoice() {
     return Object.keys(RPS)[Math.floor(Math.random() * 3)];
 }
 
-function getHumanChoice(target) {
-    const humanChoice = target.value;
+function handleRpsSelectChange(e) {
+    const humanChoice = e.target.value;
     const computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
 }
@@ -35,27 +35,37 @@ function createResultRow(no, user, cpu, res) {
     }
 
     const orderDiv = document.createElement('div');
-    orderDiv.textContent = no;
+    orderDiv.textContent = `${no}.`;
+
+    const userContainerDiv = document.createElement('div');
+    userContainerDiv.classList.add('rps-res-container');
 
     const userDiv = document.createElement('div');
     userDiv.classList.add('user-res');
     userDiv.classList.add(user);
 
+    userContainerDiv.appendChild(userDiv);
+
     const vsDiv = document.createElement('div');
     vsDiv.textContent = 'vs';
+
+    const cpuContainerDiv = document.createElement('div');
+    cpuContainerDiv.classList.add('rps-res-container');
 
     const cpuDiv = document.createElement('div');
     cpuDiv.classList.add('cpu-res');
     cpuDiv.classList.add(cpu);
+
+    cpuContainerDiv.appendChild(cpuDiv);
 
     const outcomeDiv = document.createElement('div');
     outcomeDiv.className = 'outcome-res';
     outcomeDiv.textContent = res;
 
     rowDiv.append(orderDiv);
-    rowDiv.append(userDiv);
+    rowDiv.append(userContainerDiv);
     rowDiv.append(vsDiv);
-    rowDiv.append(cpuDiv);
+    rowDiv.append(cpuContainerDiv);
     rowDiv.append(outcomeDiv);
 
     return rowDiv;
